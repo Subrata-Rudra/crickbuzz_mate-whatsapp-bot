@@ -7,6 +7,7 @@ const client = new Client({
 });
 
 client.on("qr", (qr) => {
+  console.log("Scan this QR code to start this whatsapp bot");
   qrcode.generate(qr, { small: true });
 });
 
@@ -33,8 +34,7 @@ client.on("message", async (message) => {
     const response = await axios(
       "https://cricbuzz-basic-api-by-subrata.onrender.com/basic"
     ).then((res) => res.data);
-
-    let scoreMsg = "*LIVE SCORE BY Cricbuzz_Mate🏏*\n\n";
+    let scoreMsg = `*LIVE SCORE BY Cricbuzz_Mate🏏*\n\n`;
 
     response.forEach((match) => {
       let row = "";
