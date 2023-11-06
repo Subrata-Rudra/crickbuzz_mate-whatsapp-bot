@@ -28,9 +28,13 @@ client.on("message", async (message) => {
     content === "hello!"
   ) {
     message.reply(
-      `Hello! I am your Cricbuzz Mate🏏. I will tell you Live Cricket Score. Just type "score" or "Score"`
+      `Hello! I am your *Cricbuzz Mate*🏏\nI will tell you *Live Cricket Score*\nJust type *!SCORE* or *!Score* or *!score*`
     );
-  } else if (content === "score" || content == "Score") {
+  } else if (
+    content === "!score" ||
+    content == "!Score" ||
+    content === "!SCORE"
+  ) {
     const response = await axios(
       "https://cricbuzz-basic-api-by-subrata.onrender.com/basic"
     ).then((res) => res.data);
@@ -47,6 +51,14 @@ client.on("message", async (message) => {
     scoreMsg +=
       "\n*Data Source:* https://cricbuzz-basic-api-by-subrata.onrender.com/\n*API details:* https://github.com/Subrata-Rudra/cricbuzz-basic-api";
     message.reply(scoreMsg);
+  } else if (
+    content === "!developer" ||
+    content === "!Developer" ||
+    content === "!DEVELOPER"
+  ) {
+    message.reply(
+      `Developer🧑‍💻: *Subrata Rudra*\n*Source Code📁:* https://github.com/Subrata-Rudra/crickbuzz_mate-whatsapp-bot\n*Subrata's GitHub:* https://github.com/Subrata-Rudra\n*Subrata's LinkedIn:* https://www.linkedin.com/in/subrata-rudra-b481741b7/`
+    );
   }
 });
 
